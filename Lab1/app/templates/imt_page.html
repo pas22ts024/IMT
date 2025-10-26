@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+        <h3  class="text-center">Черновое заключение</h3>
+        <div class="form-group">
+            <label class="form-label">Являются ли пациенты родсвенниками?</label>
+            <input disabled class="form-control" style="width: 150px" value="{{ imt.related }}">
+        </div>
+        <h4 class="text-center">Пациенты</h4>
+        <div class="cards-wrapper row">
+            {% for category in categorys %}
+                <div class="card w-100">
+                     <div class="row g-0 align-items-center px-3">
+                        <div class="col-md-2 d-flex justify-content-center">
+                            <a href="/categorys/{{ category.id }}/">
+                                <img src="{{ category.image }}" />
+                            </a>
+                        </div>
+                        <div class="col-md-2 align-items-center d-flex flex-column">
+                            <p class="card-text text-muted">Название</p>
+                            <h5 class="card-title">{{ category.name }}</h5>
+                        </div>
+                        <div class="col-md-2 align-items-center d-flex flex-column">
+                            <p class="card-text text-muted">Пол</p>
+                            <p class="card-text">{{ category.sex }} </p>
+                        </div>
+                        <div class="col-md-2 justify-content-center d-flex">
+                            <div class="form-group">
+                                <label class="form-label">Вес</label>
+                                <input disabled class="form-control" style="width: 150px" value="{{ category.weight }}">
+                            </div>
+                        </div>
+                        <div class="col-md-2 justify-content-center d-flex">
+                            <div class="form-group">
+                                <label class="form-label">Рост</label>
+                                <input disabled class="form-control" style="width: 150px" value="{{ category.height }}">
+                            </div>
+                        </div>
+                        <div class="col-md-2 justify-content-center d-flex">
+                            <div class="form-group">
+                                <label class="form-label">ИМТ</label>
+                                <input disabled class="form-control" style="width: 150px" value="{{ category.imt }}">
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}
