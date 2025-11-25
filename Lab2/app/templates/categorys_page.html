@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <main class="container">
+        <div class="row d-flex justify-content-between">
+            {% include "search_bar.html" %}
+            {% include "bin.html" %}
+        </div>
+        <div class="cards-wrapper">
+            {% for category in categorys %}
+                <div class="card">
+                    <img src="{{ category.image.url }}" class="category-preview" alt=""/>
+                    <div class="card-body" >
+                        <div class="card-info">
+                            <h5 class="card-title">{{ category.name }}</h5>
+                            <p class="card-text">Пол: {{ category.sex }} </p>
+                        </div>
+                        <div class="row card-btns">
+                            <div class="col d-flex justify-content-center flex-grow-1">
+                                <a href="/categorys/{{ category.id }}" class="btn btn-primary">
+                                    Открыть
+                                </a>
+                            </div>
+                            <form method="post" action="{% url 'add_category_to_draft_imt' category.id %}" class="col d-flex justify-content-center">
+                                {% csrf_token %}
+                                <input type="hidden" name="category_name" value="{{ category_name }}">
+                                <button class="add-btn btn btn-secondary" type="submit">
+                                    Добавить
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+{% endblock content %}
+

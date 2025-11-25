@@ -1,0 +1,7 @@
+Django
+psycopg2
+psycopg
+Pillow
+minio
+django-minio-backend
+Faker

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <main class="container">
+        <h3  class="text-center">Черновое заключение</h3>
+        <div class="form-group">
+            <label class="form-label">Являются ли пациенты родсвенниками?</label>
+            {% if imt.related == True %}
+                <input disabled type="text" class="form-control" style="width: 250px" value="Да">
+            {% elif imt.related == False %}
+               <input disabled type="text" class="form-control" style="width: 250px" value="Нет">
+            {% else %}
+                <input placeholder="Да / Нет" disabled type="text" class="form-control" style="width: 250px">
+            {% endif %}
+        </div>
+        {% if items|length > 0 %}
+            <h4 class="text-center">Пациенты</h4>
+            <div class="cards-wrapper d-flex flex-column">
+                {% for item in items %}
+                    <div class="card w-100 mb5">
+                        <div class="row g-0 align-items-center px-3">
+                            <div class="col-md-2 justify-content-center d-flex">
+                                <a href="/categorys/{{ item.category.id }}/">
+                                    <img src="{{ item.category.image.url }}" alt=""/>
+                                </a>
+                            </div>
+                            <div class="col-md-2 align-items-center d-flex flex-column">
+                                <p class="card-text text-muted">Название</p>
+                                <h5 class="card-title">{{ item.category.name }}</h5>
+                            </div>
+                            <div class="col-md-2 align-items-center d-flex flex-column">
+                                <p class="card-text text-muted">Пол</p>
+                                <p class="card-text">{{ item.category.sex }} </p>
+                            </div>
+                            <div class="col-md-2 justify-content-center d-flex">
+                                <div class="form-group">
+                                    <label class="form-label">Вес</label>
+                                    <input disabled type="text" class="form-control" style="width: 150px"
+                                           value="{{ item.weight }}">
+                                </div>
+                            </div>
+                            <div class="col-md-2 justify-content-center d-flex">
+                                <div class="form-group">
+                                    <label class="form-label">Рост</label>
+                                    <input disabled type="text" class="form-control" style="width: 150px"
+                                           value="{{ item.height }}">
+                                </div>
+                            </div>
+                            <div class="col-md-2 justify-content-center d-flex">
+                                <div class="form-group">
+                                    <label class="form-label">ИМТ</label>
+                                    {% if imt.ИМТ %}
+                                        <input disabled type="text" class="form-control" style="width: 175px" value="{{ item.factor }}">
+                                    {% else %}
+                                        <input disabled type="text" class="form-control" style="width: 175px" placeholder="Еще не рассчитано">
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+             <h4 class="text-center">Пациенты еще не добавлены</h4>
+        {% endif %}
+        <form method="post" action="{% url 'delete_imt' imt.id %}" class="d-flex justify-content-center">
+            {% csrf_token %}
+            <button class="btn btn-danger delete-draft-imt-btn" type="submit" style="width: 125px">
+                Удалить
+            </button>
+        </form>
+    </main>
+{% endblock content %}
