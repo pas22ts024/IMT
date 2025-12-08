@@ -1,0 +1,671 @@
+{
+	"info": {
+		"_postman_id": "314e2c9f-8cfc-400b-808c-cc6214b66a13",
+		"name": "Lab3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33669280"
+	},
+	"item": [
+		{
+			"name": "домен пациента",
+			"item": [
+				{
+					"name": "список с фильтрацией",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categorys/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorys",
+								""
+							],
+							"query": [
+								{
+									"key": "category_name",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "одна запись",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseURL}}/api/categorys/1/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorys",
+								"1",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавление",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/categorys/create/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorys",
+								"create",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "изменение",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"description\": \"asdf\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categorys/1/update/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorys",
+								"1",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "удаление",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8000/api/categorys/1/delete/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"categorys",
+								"1",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавление в заключение-черновик",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/categorys/1/add_to_imt/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorys",
+								"1",
+								"add_to_imt",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "добавление изображения",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/Ярослав/Desktop/sports-car-futuristic-mountain-sunset-scenery-digital-art-2k-wallpaper-uhdpaper.com-537@0@i.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/categorys/1/update_image/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"categorys",
+								"1",
+								"update_image",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "домен заключения",
+			"item": [
+				{
+					"name": "иконка корзины",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/imts/cart/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"cart",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "список",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/imts/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "одна запись",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/imts/45/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"45",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "изменение полей заключения",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"related\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/imts/45/update/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"45",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "сформировать создателем",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/imts/45/update_status_user/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"45",
+								"update_status_user",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "завершить/отклонить врачом",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"status\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/imts/31/update_status_admin/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"31",
+								"update_status_admin",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "удаление",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/imts/45/delete/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"45",
+								"delete",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "домен м-м",
+			"item": [
+				{
+					"name": "удаление из заявки",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/imts/31/delete_category/1/?",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"31",
+								"delete_category",
+								"1",
+								""
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "изменение значения в м-м",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"weight\": 123\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/imts/45/update_category/3/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"imts",
+								"45",
+								"update_category",
+								"3",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "домен пользователь",
+			"item": [
+				{
+					"name": "регистрация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user12\",\r\n    \"first_name\": \"first_name\",\r\n    \"last_name\": \"last_name\",\r\n    \"email\": \"user11@user.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/register/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"register",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "полей пользователя после аутентификации",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/users/info/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"info",
+								""
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "3",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "пользователя (личный кабинет)",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"user33\",\r\n    \"email\": \"user33@user.com\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/update/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"update",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "аутентификация",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"root\",\r\n    \"password\": \"1234\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/users/login/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"login",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "деавторизация",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/users/logout/",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"users",
+								"logout",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

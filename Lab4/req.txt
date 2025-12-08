@@ -1,0 +1,11 @@
+Django
+psycopg2
+psycopg
+djangorestframework
+Pillow
+minio
+django-minio-backend
+django-cors-headers
+Faker
+drf-yasg
+django-redis
